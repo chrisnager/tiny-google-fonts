@@ -1,10 +1,17 @@
 var tinyGoogleFontsScript = document.querySelector('script[src*="tiny-google-fonts"]'),
     googleFontClass = tinyGoogleFontsScript.getAttribute('data-font-class'), // Optional. Default is entire body text
-    usedCharacters = document.body.innerText.replace(/(.)(?=.*\1)/g, ""),
+    usedCharacters = '',
+    findCharacters = function() {
+        if (googleFontClass) {
+            usedCharacters = googleFontClass.innerText.replace(/(.)(?=.*\1)/g, "");
+        } else {
+            usedCharacters = document.body.innerText.replace(/(.)(?=.*\1)/g, "");
+        }
+    },
     googleFontFamily = tinyGoogleFontsScript.getAttribute('data-font-family'),
     googleFontWeight = ':' + tinyGoogleFontsScript.getAttribute('data-font-weight') // Should be optional
     googleFontStyle = tinyGoogleFontsScript.getAttribute('data-font-style') // Should be optional
-    googleFontsLink = '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' + googleFontFamily + googleFontWeight + '&text=' + usedCharacters + '%20">';
+    googleFontsLink = '<link rel="stylesheet" href="//fonts.googleapis.com/css?family=' + googleFontFamily + googleFontWeight + '&text=' + usedCharacters + '%20">';
 
 console.log(tinyGoogleFontsScript);
 console.log(googleFontClass);
