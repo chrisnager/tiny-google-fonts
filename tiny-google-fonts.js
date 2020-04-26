@@ -6,6 +6,6 @@
         allText = document.body.innerText.replace(/(.)(?=.*\1)|\n| /g, ''),
         usedCharacters = (googleFontClass) ? googleFontClassText : allText;
 
-    document.head.innerHTML += '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' + googleFonts + '&text=' + usedCharacters + '%20">';
+    document.head.innerHTML += '<link rel="stylesheet" href="//fonts.googleapis.com/css?family=' + googleFonts + '&text=' + usedCharacters + '%20">';
     document.body.parentNode.classList.add('tiny-google-fonts');
 })();
